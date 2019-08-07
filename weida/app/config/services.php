@@ -12,7 +12,15 @@ use Phalcon\Flash\Direct as Flash;
  * Shared configuration service
  */
 $di->setShared('config', function () {
-    return include APP_PATH . "/config/config.php";
+    $filename = 'config.php';
+    if (ENVIRONMENT == 'dev') {
+        $filename = 'config.dev.php';
+    }
+
+    if (ENVIRONMENT == 'test') {
+        $filename = 'config.test.php';
+    }
+    return include APP_PATH . "/config/".$filename;
 });
 
 /**
@@ -27,9 +35,11 @@ $di->setShared('url', function () {
     return $url;
 });
 
+
 /**
  * Setting up the view component
  */
+
 $di->setShared('view', function () {
     $config = $this->getConfig();
 
@@ -38,12 +48,22 @@ $di->setShared('view', function () {
     $view->setViewsDir($config->application->viewsDir);
 
     $view->registerEngines([
-        '.phtml' => PhpEngine::class
-
+        //设置模板后缀名
+        '.phtml' => function ($view, $di) use ($config) {
+            $volt = new VoltEngine($view, $di);
+            $volt->setOptions(array(
+                //模板是否实时编译
+                'compileAlways' => false,
+                //模板编译目录
+                'compiledPath' => BASE_PATH.'/cache/compiled/frontend'
+            ));
+            return $volt;
+        },
     ]);
 
     return $view;
 });
+
 
 /**
  * Database connection is created based in the parameters defined in the configuration file
@@ -82,6 +102,15 @@ $di->set('flash', function () {
         'warning' => 'alert alert-warning'
     ]);
 });
+
+
+$di->set('router', function () {
+    
+    include APP_PATH . "/Router/web.php";
+    return $router;
+});
+
+
 
 /**
  * Start the session the first time some component request the session service

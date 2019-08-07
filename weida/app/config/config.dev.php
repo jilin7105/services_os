@@ -11,7 +11,7 @@ return new \Phalcon\Config([
         'adapter'     => 'Mysql',
         'host'        => '47.95.214.178',
         'username'    => 'www',
-        'password'    => 'Weizhong360!@#',
+        'password'    => 'Weizhong2018!@#',
         'dbname'      => 'weida',
         'charset'     => 'utf8',
     ],

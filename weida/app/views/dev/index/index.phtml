@@ -1,0 +1,15 @@
+<div class="page-header">
+    <h1>功能</h1>
+</div>
+% for i in 0..100 %}
+  <div>{{i}}</div>
+{% endfor %}
+<ul>
+	{% for setitem in set %}
+		<li>
+		    <a href="{{ item.url }}">
+		        {{ item.name }}
+		    </a>
+		</li>
+	{% endfor %}
+</ul>
