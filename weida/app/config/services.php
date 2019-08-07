@@ -36,19 +36,34 @@ $di->setShared('url', function () {
 });
 
 
+
+
+
+
+
 /**
  * Setting up the view component
  */
 
-$di->setShared('view', function () {
+$di->setShared('view', function (){
     $config = $this->getConfig();
 
     $view = new View();
     $view->setDI($this);
-    $view->setViewsDir($config->application->viewsDir);
+    //$view->setViewsDir($config->application->viewsDir);
+    if (ENVIRONMENT == 'dev') {
+            $dirs = array(
+                $config->application->viewsDir . 'dev/',
+                $config->application->viewsDir,
+            );
+        } else {
+            $dirs = $config->application->viewsDir;
+        }
 
+    $view->setBasePath($dirs);
     $view->registerEngines([
         //设置模板后缀名
+        //'.phtml' => PhpEngine::class
         '.phtml' => function ($view, $di) use ($config) {
             $volt = new VoltEngine($view, $di);
             $volt->setOptions(array(

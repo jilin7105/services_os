@@ -50,20 +50,6 @@ try {
     require APP_PATH . '/config/loader.php';
 
 
-    $di->set('view', function () use ($config) {
-        $view = new \Phalcon\Mvc\View();
-        if (ENVIRONMENT == 'dev') {
-            $dirs = array(
-                $config->application->viewsDir . 'dev/',
-                $config->application->viewsDir,
-            );
-        } else {
-            $dirs = $config->application->viewsDir;
-        }
-
-        $view->setBasePath($dirs);
-        return $view;
-    }, true);
 
     if (ENVIRONMENT == 'prod') {
         $di->set('modelsMetadata', function() {
