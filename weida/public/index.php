@@ -6,6 +6,9 @@ error_reporting(E_ALL);
 define('BASE_PATH', dirname(__DIR__));
 define('APP_PATH', BASE_PATH . '/app');
 
+//$v = new Phalcon\Mvc\View\Engine\Volt();
+
+
 try {
 
     require APP_PATH . "/assfun/devhelperfun.php";

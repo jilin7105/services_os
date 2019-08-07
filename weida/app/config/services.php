@@ -3,7 +3,7 @@
 use Phalcon\Mvc\View;
 use Phalcon\Mvc\View\Engine\Php as PhpEngine;
 use Phalcon\Mvc\Url as UrlResolver;
-use Phalcon\Mvc\View\Engine\Volt as VoltEngine;
+use Phalcon\Mvc\View\Engine\Volt as ViewVoltEngine;
 use Phalcon\Mvc\Model\Metadata\Memory as MetaDataAdapter;
 use Phalcon\Session\Adapter\Files as SessionAdapter;
 use Phalcon\Flash\Direct as Flash;
@@ -61,11 +61,12 @@ $di->setShared('view', function (){
         }
 
     $view->setBasePath($dirs);
+
     $view->registerEngines([
         //设置模板后缀名
         //'.phtml' => PhpEngine::class
         '.phtml' => function ($view, $di) use ($config) {
-            $volt = new VoltEngine($view, $di);
+            $volt = new ViewVoltEngine($view, $di);
             $volt->setOptions(array(
                 //模板是否实时编译
                 'compileAlways' => false,
