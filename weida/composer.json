@@ -6,14 +6,6 @@
             "email": "443500251@qq.com"
         }
     ],
-    "require": {
-        "twig/twig": "^2.0",
-        "vinyvicente/phalcon-twig": "^1.1"
-    },
-    "repositories": {
-	    "packagist": {
-	        "type": "composer",
-	        "url": "https://packagist.phpcomposer.com"
-	    }
-	}
+    "require": {}
+    
 }

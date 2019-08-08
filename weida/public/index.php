@@ -52,7 +52,7 @@ try {
      */
     require APP_PATH . '/config/loader.php';
     
-
+    require APP_PATH . '/config/viewConfig.php';
 
     if (ENVIRONMENT == 'prod') {
         $di->set('modelsMetadata', function() {

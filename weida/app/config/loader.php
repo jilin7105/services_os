@@ -8,7 +8,8 @@ if (ENVIRONMENT == 'dev') {
 	    array(
 	      
 	       "WZApp\\Help"=>APP_PATH."/help",
-	       "WZApp\\Model"=>APP_PATH."/models/dev/"
+	       "WZApp\\Model"=>APP_PATH."/models/dev/",
+	       'Phalcon' => BASE_PATH.'/incubator/Library/Phalcon/',
 	    )
 	);
 

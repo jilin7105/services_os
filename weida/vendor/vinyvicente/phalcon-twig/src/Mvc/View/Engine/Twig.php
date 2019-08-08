@@ -28,7 +28,6 @@ class Twig extends Engine implements EngineInterface
         parent::__construct($view, $dependencyInjector);
 
         $loader = new \Twig_Loader_Filesystem($this->getView()->getViewsDir());
-
         $this->twig = new \Twig_Environment($loader, $options);
     }
 
@@ -42,6 +41,7 @@ class Twig extends Engine implements EngineInterface
         if (!$params) {
             $params = [];
         }
+
         $content = $this->twig->render(str_replace($this->getView()->getViewsDir(), '', $path), $params);
         if ($mustClean) {
             $this->getView()->setContent($content);
