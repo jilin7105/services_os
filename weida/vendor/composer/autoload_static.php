@@ -21,6 +21,10 @@ class ComposerStaticInitd2e07d0489a3533d11a15289f2e90200
             'Symfony\\Polyfill\\Mbstring\\' => 26,
             'Symfony\\Polyfill\\Ctype\\' => 23,
         ),
+        'P' => 
+        array (
+            'Phalcon\\' => 8,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
@@ -35,6 +39,10 @@ class ComposerStaticInitd2e07d0489a3533d11a15289f2e90200
         'Symfony\\Polyfill\\Ctype\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-ctype',
+        ),
+        'Phalcon\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/vinyvicente/phalcon-twig/src',
         ),
     );
 

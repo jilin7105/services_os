@@ -7,7 +7,8 @@
         }
     ],
     "require": {
-        "twig/twig": "^2.0"
+        "twig/twig": "^2.0",
+        "vinyvicente/phalcon-twig": "^1.1"
     },
     "repositories": {
 	    "packagist": {

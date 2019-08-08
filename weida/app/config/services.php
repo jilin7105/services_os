@@ -40,17 +40,42 @@ $di->setShared('url', function () {
 
 
 
+// /**
+//  * Setting up the view component
+//  */
 
-/**
- * Setting up the view component
- */
+// $di->setShared('view', function (){
+//     $config = $this->getConfig();
 
-$di->setShared('view', function (){
+//     $view = new View();
+//     $view->setDI($this);
+//     //$view->setViewsDir($config->application->viewsDir);
+//     if (ENVIRONMENT == 'dev') {
+//             $dirs = array(
+//                 $config->application->viewsDir . 'dev/',
+//                 $config->application->viewsDir,
+//             );
+//         } else {
+//             $dirs = $config->application->viewsDir;
+//         }
+
+//     $view->setBasePath($dirs);
+
+//     $view->registerEngines([
+//         //设置模板后缀名
+//         '.phtml' => 'twigServices'
+//         // '.phtml' => function ($view, $di) use ($config) {
+//         //     $volt =  new \Twig\Environment($view);
+            
+//         //     return $volt;
+//         // },
+//     ]);
+
+//     return $view;
+// });
+$di->setShared('view', function() {
+    $view = new \Phalcon\Mvc\View();
     $config = $this->getConfig();
-
-    $view = new View();
-    $view->setDI($this);
-    //$view->setViewsDir($config->application->viewsDir);
     if (ENVIRONMENT == 'dev') {
             $dirs = array(
                 $config->application->viewsDir . 'dev/',
@@ -61,25 +86,32 @@ $di->setShared('view', function (){
         }
 
     $view->setBasePath($dirs);
-
+    //$v = new \Phalcon\Mvc\View\Engine\Volt\Compiler();
     $view->registerEngines([
-        //设置模板后缀名
-        //'.phtml' => PhpEngine::class
-        '.phtml' => function ($view, $di) use ($config) {
-            $volt = new ViewVoltEngine($view, $di);
-            $volt->setOptions(array(
-                //模板是否实时编译
-                'compileAlways' => false,
-                //模板编译目录
-                'compiledPath' => BASE_PATH.'/cache/compiled/frontend'
-            ));
-            return $volt;
-        },
+        // '.phtml' => '\Phalcon\Mvc\View\Engine\Php',
+        // '.volt' => function($view, $di) use ($config) {
+        //     $volt = new ViewVoltEngine($view, $di);
+ 
+        //     $volt->setOptions(['compiledPath'       => $config->application->cacheDir . 'view/',
+        //                         'compiledExtension' => '.compiled',
+        //                         'compileAlways'     => true
+        //     ]);
+ 
+        //     $compiler = $volt->getCompiler();
+        //     $compiler->addFilter('floor', 'floor');
+        //     $compiler->addFunction('range', 'range');
+ 
+        //     return $volt;
+        // },
+        \Phalcon\Mvc\View\Engine\Twig::DEFAULT_EXTENSION => function ($view, $di) {
+            return new View\Engine\Twig($view, $di, [
+                'cache' =>$this->getConfig()->application->cacheDir,
+            ]);
+        }
     ]);
-
+ 
     return $view;
 });
-
 
 /**
  * Database connection is created based in the parameters defined in the configuration file

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ef538072b2dcb3e69ed9ba448f058a4d",
+    "content-hash": "53d50691931abee55474570ee95daa1b",
     "packages": [
         {
             "name": "symfony/polyfill-ctype",
@@ -189,6 +189,46 @@
                 "templating"
             ],
             "time": "2019-06-18T15:37:11+00:00"
+        },
+        {
+            "name": "vinyvicente/phalcon-twig",
+            "version": "v1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/vinyvicente/phalcon-twig.git",
+                "reference": "8ab62a6203c8c306b13febceb308d080d167431c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/vinyvicente/phalcon-twig/zipball/8ab62a6203c8c306b13febceb308d080d167431c",
+                "reference": "8ab62a6203c8c306b13febceb308d080d167431c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6 || >=7.0",
+                "twig/twig": "^1.28 || ~2.0"
+            },
+            "require-dev": {
+                "phalcon/ide-stubs": "^3.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Phalcon\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Vinicius",
+                    "email": "vinyvicente@gmail.com"
+                }
+            ],
+            "description": "Twig View Handler to Phalcon PHP",
+            "time": "2018-04-04T21:34:32+00:00"
         }
     ],
     "packages-dev": [],

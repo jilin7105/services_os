@@ -7,7 +7,7 @@ define('BASE_PATH', dirname(__DIR__));
 define('APP_PATH', BASE_PATH . '/app');
 
 //$v = new Phalcon\Mvc\View\Engine\Volt();
-
+include BASE_PATH.'/vendor/autoload.php';
 
 try {
 
@@ -51,7 +51,7 @@ try {
      * Include Autoloader
      */
     require APP_PATH . '/config/loader.php';
-
+    
 
 
     if (ENVIRONMENT == 'prod') {
