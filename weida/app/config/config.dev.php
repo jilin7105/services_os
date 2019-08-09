@@ -26,5 +26,9 @@ return new \Phalcon\Config([
         'cacheDir'       => BASE_PATH . '/cache/',
         'baseUri'        => '/weida/',
    
+    ],
+    'service_type' =>[
+        "1"=>"系统服务",
+        "2"=>"api管理"
     ]
 ]);

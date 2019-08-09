@@ -5,7 +5,8 @@ class IndexController extends ControllerBase
 {
  	public function indexAction()
     {
-        $this->view->phrase = 'World!';
+        $this->view->setVar("services",Services::find(["status = :status:","bind"=>['status'=>1]]));
+
     }
 
 }

@@ -9,8 +9,9 @@ class Services extends Model
 	public $created_at;
 	public $updated_at;
     public $url;
- 
-    
+    public $type;
+    public $has_open_api;
+    public $desc;
 	public function initialize()
     {
         $this->setSource("wd_service");
