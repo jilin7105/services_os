@@ -22,7 +22,7 @@ class RouterController extends ControllerBase
        $res = $router->create($input);
 
        if(!$res){
-          dd($res->getMessages());
+          dd($router->getMessages());
        }
     	 $this->response->redirect('router-list');
     }
