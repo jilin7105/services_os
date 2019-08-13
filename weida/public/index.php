@@ -24,6 +24,8 @@ try {
         define('ENVIRONMENT', 'test');
     }else if(in_array($host,$ip['prod'])){
         define('ENVIRONMENT', 'prod');
+    }else{
+        echo "<h1>ip :'$host'未注册，请联系管理员</h1>";die;
     }
 
 
