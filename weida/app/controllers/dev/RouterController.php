@@ -24,7 +24,7 @@ class RouterController extends ControllerBase
        if(!$res){
           dd($router->getMessages());
        }
-    	 $this->response->redirect('router-list');
+    	 $this->response->redirect('/router-list');
     }
 
 
