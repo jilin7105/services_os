@@ -17,7 +17,7 @@ try {
     
     $host = Phalcon\Arr::get($_SERVER, 'SERVER_ADDR', '127.0.0.1');
 
-    var_dump($host,$ip);die; 
+    
     if(in_array($host,$ip['dev'])){
         define('ENVIRONMENT', 'dev');
     }else if(in_array($host,$ip['test'])){
