@@ -1,0 +1,38 @@
+<h1>路由列表</h1>
+<a class="btn btn-default" href="#" role="button">新增路由</a>
+<div class="table-responsive">
+  <table class="table table-bordered  table-hover">
+  	<theader>
+  		<tr>
+	    	<td>id</td>
+	    	<td>路由名称</td>
+	    	<td>路由说明</td>
+	    	<td>路由地址</td>
+	    	<td>路由类型</td>
+	    	<td>路由方法</td>
+        <td>创建时间</td>
+        <td>状态</td>
+	    	<td>服务操作</td>
+    	</tr>
+
+  	</theader>
+
+    	
+    <tbody>
+    	<?php foreach($router as $v ){?>
+    		<tr>
+    			<td><?= $v->id ?></td>
+    			<td><?= $v->name ?></td>
+    			<td><?= $v->desc ?></td>
+    			<td><?= $v->type ?></td>
+    			<td><?= $v->controller.'::'.$v->action ?></td>
+    			<td><?= $v->created_at ?></td>
+    			<td><p class="<?= $v->status == 1?"text-success":"text_warning" ?>"><?= $v->status == 1?"使用中":"停用" ?></p></td>
+	    		<td><a href="/services/delete" class="btn btn-link">停用</a></td>
+    		</tr>
+    	<?php }?>
+    </tbody>
+    	
+
+  </table>
+</div>

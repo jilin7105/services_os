@@ -12,7 +12,7 @@ class RouterController extends ControllerBase
 
     public function listAction(){
        $router = Router::find();
-       dd( $router);
+       $this->view->setVar("routers",$router);
     }
 
     public function addAction()
