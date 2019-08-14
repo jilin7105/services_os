@@ -18,7 +18,7 @@ class RouterController extends ControllerBase
     	$input = $this->request->get();      
        	$router = new Router();
        	$res = $router->create($input);
-
+       	
 
     	
     }
