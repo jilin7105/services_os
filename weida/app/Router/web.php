@@ -8,6 +8,8 @@
 	$router->add("/router-add", "router::add");
 	$router->add("/router-list", "router::list");
 	$routers = mrouter::find();
+
 	foreach ($routers as $key => $value) {
+		//dd($value->url, "$value->controllers::$value->action");
 		$router->add($value->url, "$value->controllers::$value->action");
 	}
