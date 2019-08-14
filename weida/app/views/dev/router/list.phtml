@@ -23,9 +23,10 @@
     		<tr>
     			<td><?= $v->id ?></td>
     			<td><?= $v->name ?></td>
-    			<td><?= $v->desc ?></td>
+    			<td><?= $v->router_desc ?></td>
+          <td><?= $v->url ?></td>
     			<td><?= $v->type ?></td>
-    			<td><?= $v->controller.'::'.$v->action ?></td>
+    			<td><?= $v->controllers.'::'.$v->action ?></td>
     			<td><?= $v->created_at ?></td>
     			<td><p class="<?= $v->status == 1?"text-success":"text_warning" ?>"><?= $v->status == 1?"使用中":"停用" ?></p></td>
 	    		<td><a href="/services/delete" class="btn btn-link">停用</a></td>
