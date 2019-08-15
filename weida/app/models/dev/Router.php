@@ -8,13 +8,13 @@ class Router extends Model
 	public $status;
 	public $created_at;
 	public $updated_at;
-	public $desc;
     public $url;
     public $action;
     public $name;
     public $type;
     public $request_demo;
     public $response_demo;
+    public $router_desc;
 	public function initialize()
     {
         $this->setSource("wd_router");
