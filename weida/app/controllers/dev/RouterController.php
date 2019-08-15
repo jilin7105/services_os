@@ -22,8 +22,8 @@ class RouterController extends ControllerBase
     	$router->status = 0;
     	$router->save();
 
-    	return $this->response->redirect('/router-list');
-      //$this->view->disable();
+    	$this->response->redirect('/router-list');
+      $this->view->disable();
     }
     public function addAction()
     {
