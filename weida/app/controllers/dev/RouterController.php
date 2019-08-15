@@ -17,6 +17,7 @@ class RouterController extends ControllerBase
     }
 
     public function infoAction(){
+       $id = $this->request->get('id'); 
        $router = Router::findFirst($id);
        $this->view->setVar("router",$router);
 
@@ -45,6 +46,12 @@ class RouterController extends ControllerBase
 
     }
 
+    public function updateAction(){
+      $input = $this->request->get();
+      $router = Router::findFirst($input['id']);
+      $router->update($input );
+      $this->response->redirect('/router-list', true , 301);
+    }
 
 }
 
