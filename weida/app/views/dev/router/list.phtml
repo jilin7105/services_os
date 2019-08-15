@@ -29,8 +29,12 @@
     			<td><?= $v->type ?></td>
     			<td><?= $v->controllers.'::'.$v->action ?></td>
     			<td><?= $v->created_at ?></td>
-    			<td><p class="<?= $v->status == 1?'text-success':'text_warning' ?>"><?= $v->status == 1?"使用中":"停用" ?></p></td>
-	    		<td><a href="/router-delete?id=<?= $v->id ?>" class="btn btn-link">停用</a>
+    			<td>
+            <a href="/router-updatestatus?id=<?= $v->id ?>" class="btn btn-link">
+            <p class="<?= $v->status == 1?'text-success':'text_warning' ?>"><?= $v->status == 1?"使用中":"停用" ?></p>
+            </a>
+          </td>
+	    		<td><a href="/router-delete?id=<?= $v->id ?>" class="btn btn-link">删除</a>
               <a href="/router-info?id=<?= $v->id ?>" class="btn btn-link">修改</a>
           </td>
 

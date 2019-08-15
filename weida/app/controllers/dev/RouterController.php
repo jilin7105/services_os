@@ -28,7 +28,7 @@ class RouterController extends ControllerBase
     	$router->status = 0;
     	$router->save();
 
-    	$this->response->redirect('/router-list', true , 301);
+    	$this->response->redirect('/router-list');
     
     }
     public function addAction()
@@ -41,15 +41,24 @@ class RouterController extends ControllerBase
 	    if(!$res){
 	        dd($router->getMessages());
 	    }
-    	$this->response->redirect('/router-list', true , 301);
+    	$this->response->redirect('/router-list');
       
 
+    }
+
+    public function updateStatusAction(){
+        $id = $this->request->get('id'); 
+        $router = Router::findFirst($id);
+        $router->status = $router->status == 0 ?1:0;
+        $router->save();
+
+        $this->response->redirect('/router-list');
     }
 
     public function updateAction(){
       $input = $this->request->get();
       $router = Router::findFirst($input['id']);
-      $router->update($input );
+      $router->update($input);
       $this->response->redirect('/router-list', true , 301);
     }
 
