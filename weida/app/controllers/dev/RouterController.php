@@ -16,6 +16,11 @@ class RouterController extends ControllerBase
 
     }
 
+    public function infoAction(){
+       $router = Router::findFirst($id);
+       $this->view->setVar("router",$router);
+
+    }
     public function deleteAction(){
     	$id = $this->request->get('id'); 
     	$router = Router::findFirst($id);
@@ -23,7 +28,7 @@ class RouterController extends ControllerBase
     	$router->save();
 
     	$this->response->redirect('/router-list', true , 301);
-      //$this->view->disable();
+    
     }
     public function addAction()
     {
