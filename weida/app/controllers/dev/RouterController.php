@@ -22,8 +22,8 @@ class RouterController extends ControllerBase
     	$router->status = 0;
     	$router->save();
 
-    	$this->response->redirect('/router-list');
-
+    	return $this->response->redirect('/router-list');
+      //$this->view->disable();
     }
     public function addAction()
     {
@@ -35,7 +35,8 @@ class RouterController extends ControllerBase
 	    if(!$res){
 	        dd($router->getMessages());
 	    }
-    	$this->response->redirect('/router-list');
+    	return $this->response->redirect('/router-list');
+      //$this->view->disable();
 
     }
 
