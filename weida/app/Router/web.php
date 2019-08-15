@@ -11,3 +11,10 @@
 	foreach ($routers as $key => $value) {
 		$router->add($value->url, "$value->controllers::$value->action");
 	}
+
+	$router->notFound(
+    array(
+        "controller" => "index",
+        "action"     => "route404"
+    )
+);
