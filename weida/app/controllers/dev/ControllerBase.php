@@ -8,6 +8,6 @@ class ControllerBase extends Controller
 	public $response;
 	public function initialize()
     {
-        $this->response = new Response();
+        //$this->response = new Response();
     }
 }

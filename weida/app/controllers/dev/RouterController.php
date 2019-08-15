@@ -23,7 +23,7 @@ class RouterController extends ControllerBase
     	$router->save();
 
     	$this->response->redirect('/router-list');
-      $this->view->disable();
+      //$this->view->disable();
     }
     public function addAction()
     {
@@ -35,8 +35,8 @@ class RouterController extends ControllerBase
 	    if(!$res){
 	        dd($router->getMessages());
 	    }
-    	return $this->response->redirect('/router-list');
-      //$this->view->disable();
+    	$this->response->redirect('/router-list');
+      
 
     }
 
