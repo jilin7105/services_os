@@ -13,8 +13,8 @@
 	}
 
 	$router->notFound(
-    array(
-        "controller" => "index",
-        "action"     => "route404"
-    )
-);
+	    array(
+	        "controller" => "index",
+	        "action"     => "route404"
+	    )
+	);
