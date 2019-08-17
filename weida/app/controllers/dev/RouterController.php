@@ -11,7 +11,7 @@ class RouterController extends ControllerBase
     }
 
     public function listAction(){
-       $router = Router::find();
+       $router = Router::find(['order'=>"id desc"]);
        $this->view->setVar("routers",$router);
 
     }
