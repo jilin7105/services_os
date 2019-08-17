@@ -57,8 +57,8 @@ class RouterController extends ControllerBase
 
     public function updateAction(){
       $input = $this->request->get();
-     // dd($input );
-      $router = Router::findFirst($input['id']);
+      $id = $input['id'];
+      $router = Router::findFirst($id);
      dd($input,  $router);
       unset($input['id']);
       $res = $router->update($input);
