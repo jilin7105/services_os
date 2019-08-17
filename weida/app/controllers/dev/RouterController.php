@@ -28,7 +28,7 @@ class RouterController extends ControllerBase
     	$router->status = 0;
     	$router->save();
 
-    	$this->response->redirect('router-list');
+    	$this->response->redirect(['for'=>'router-list']);
     
     }
     public function addAction()
@@ -41,7 +41,7 @@ class RouterController extends ControllerBase
 	    if(!$res){
 	        dd($router->getMessages());
 	    }
-    	$this->response->redirect('router-list');
+    	$this->response->redirect(['for'=>'router-list']);
       
 
     }
@@ -52,7 +52,7 @@ class RouterController extends ControllerBase
         $router->status = $router->status == 0 ?1:0;
         $router->save();
 
-        $this->response->redirect('router-list');
+        $this->response->redirect(['for'=>'router-list']);
     }
 
     public function updateAction(){
@@ -63,7 +63,7 @@ class RouterController extends ControllerBase
        if(!$res){
           dd($router->getMessages());
       }
-      $this->response->redirect('router-list');
+      $this->response->redirect(['for'=>'router-list']);
     }
 
 }
