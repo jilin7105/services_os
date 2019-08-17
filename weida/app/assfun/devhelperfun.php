@@ -4,6 +4,6 @@
 	}
 
 
-	function redict($url){
+	function redirect($url){
 		header("Location: $url");die;
 	}
