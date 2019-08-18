@@ -9,9 +9,9 @@ class ControllerBase extends Controller
 	public $use_common_template = true;
 	public function initialize()
     {
-    	if($use_common_template){
-    		$this->view->setTemplateAfter('common');
-    	}
+    	
+    	$this->view->setTemplateAfter('common');
+    	
     	
         $this->response = new Response();
     }
