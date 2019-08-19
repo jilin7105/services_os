@@ -21,7 +21,7 @@ class WechatController extends ControllerBase
 
     public function addAction(){
     	$input = $this->request->get();
-    	dd($input);
+    	dd($input,$this->request->getUploadedFiles());
     }
 
 
