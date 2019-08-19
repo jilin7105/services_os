@@ -1,1 +1,43 @@
-<h1>22222<h1>
+<div class="page-header">
+  <h1>公众号列表 <small></small></h1>
+</div>
+<a class="btn btn-default" href="/wachat-showadd" role="button">添加公众号</a>
+<div class="table-responsive">
+  <table class="table table-bordered  table-hover">
+  	<theader>
+  		<tr>
+	    	<td>id</td>
+	    	<td>公众号名称</td>
+        <td>账号</td>
+	    	<td>联系人</td>
+	    	<td>联系电话</td>
+	    	<td>创建时间</td>
+	    	<td>状态</td>
+	    	<td>服务操作</td>
+    	</tr>
+
+  	</theader>
+
+    	
+    <tbody>
+    	<?php foreach($wechats as $v ){?>
+    		<tr>
+    			<td><?= $v->id ?></td>
+    			<td><?= $v->name ?></td>
+          <td><?= $v->username ?></td>
+    			<td><?= $v->pm_name ?></td>
+    			<td><?= $v->pm_tel?></td>
+    			<td><?= $v->created_at ?></td>
+    			<td>
+            <a href="/wechat-updatestatus?id=<?= $v->id ?>" class="btn btn-link">
+              <p class="<?= $v->status == 1?"text-success":"text_warning" ?>"><?= $v->status == 1?"使用中":"停用" ?></p>
+            </a>
+            </td>
+	    		<td></td>
+    		</tr>
+    	<?php }?>
+    </tbody>
+    	
+
+  </table>
+</div>

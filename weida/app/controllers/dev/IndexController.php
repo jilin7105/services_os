@@ -10,8 +10,7 @@ class IndexController extends ControllerBase
     }
 
     public function route404Action(){
-    	echo "<h1>当前地址未注册</h1>";
-    	die;
+    	
     }
 }
 

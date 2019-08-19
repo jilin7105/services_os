@@ -17,7 +17,7 @@ class ServicesController extends ControllerBase
 	    if(!$res){
 	        dd($service->getMessages());
 	    }
-    	$this->response->redirect('/');
+    	redirect('/');
       
     }
 }
