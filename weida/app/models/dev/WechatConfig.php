@@ -19,7 +19,8 @@ class WechatConfig extends Model
     public $check_file;
     public $service_token;
     public $EncodingAESKey;
-
+    public $from;
+    public $call_back_url;
 
 
 	public function initialize()

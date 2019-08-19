@@ -14,6 +14,17 @@ class WechatController extends ControllerBase
 
     }
 
+    public function showaddAction(){
+
+    }
+
+
+    public function addAction(){
+    	$input = $this->request->input();
+    	dd($input);
+    }
+
+
     public function updateStatusAction(){
         $id = $this->request->get('id'); 
         $wc = WechatConfig::findFirst((int)$id);
@@ -22,6 +33,9 @@ class WechatController extends ControllerBase
 
         redirect('/');
     }
+
+
+
 
 }
 
