@@ -20,7 +20,7 @@ class WechatController extends ControllerBase
 
 
     public function addAction(){
-    	$input = $this->request->input();
+    	$input = $this->request->get();
     	dd($input);
     }
 
