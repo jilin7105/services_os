@@ -1,6 +1,6 @@
 <?php
 use WZApp\Model\WechatConfig;
-
+use WZApp\Help\FileHelper;
 class WechatController extends ControllerBase
 {
 	public function initialize()
@@ -21,7 +21,19 @@ class WechatController extends ControllerBase
 
     public function addAction(){
     	$input = $this->request->getPost();
-    	dd($input,$this->request->getUploadedFiles());
+    	//dd($input);
+    	$file = new FileHelper();
+    	$upload_file = $file->Upload($this->request);
+    	foreach ($upload_file as $key => $value) {
+    		$input[$key] = $value['showpath'];
+    	}
+
+    	$wc = new WechatConfig();
+    	$res = $wc->create($input);
+    	if(!$res){
+	        dd($router->getMessages());
+	    }
+    	redirect('/wechat');
     }
 
 
@@ -31,8 +43,11 @@ class WechatController extends ControllerBase
         $wc->status = $wc->status == 0 ?1:0;
         $wc->save();
 
-        redirect('/');
+        redirect('/wechat');
     }
+
+    
+
 
 
 

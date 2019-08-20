@@ -5,7 +5,7 @@
  */
 defined('BASE_PATH') || define('BASE_PATH', getenv('BASE_PATH') ?: realpath(dirname(__FILE__) . '/../..'));
 defined('APP_PATH') || define('APP_PATH', BASE_PATH . '/app');
-
+defined('UPLOAD_PATH') || define('UPLOAD_PATH', BASE_PATH . '/uploads/');
 return new \Phalcon\Config([
     'database' => [
         'adapter'     => 'Mysql',
@@ -31,6 +31,5 @@ return new \Phalcon\Config([
         "1"=>"系统服务",
         "2"=>"api管理"
     ]
-    'appscript' =>'dc23834dc23ad3da44d0016ea05abccd',
-    'appid'=>'wx77e170740e5fbd7c'
+  
 ]);

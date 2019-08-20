@@ -33,7 +33,32 @@
               <p class="<?= $v->status == 1?"text-success":"text_warning" ?>"><?= $v->status == 1?"使用中":"停用" ?></p>
             </a>
             </td>
-	    		<td></td>
+	    		<td>
+            <button type="button" class="btn btn-default" data-toggle="popover"  data-placement='right'  data-title="服务器配置" 
+            data-template='
+            <div class="popover" role="tooltip">
+                <div class="arrow"></div>
+                  <h3 class="popover-title">服务器配置</h3>
+                <div class="popover-content">
+                  <table>
+                      <tr>
+                        <td>令牌（token）</td>
+                        <td><?= $v->service_token?></td>
+                      </tr>
+                      <tr>
+                        <td>回调地址</td>
+                        <td><?= $v->call_back_url?></td>
+                      </tr>
+                      <tr>
+                        <td>明文</td>
+                        <td><?= $v->EncodingAESKey?></td>
+                      </tr>
+                  </table>
+                </div>
+            </div>'  >
+              查看服务器配置
+            </button>
+          </td>
     		</tr>
     	<?php }?>
     </tbody>
