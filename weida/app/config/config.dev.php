@@ -31,4 +31,6 @@ return new \Phalcon\Config([
         "1"=>"系统服务",
         "2"=>"api管理"
     ]
+    'appscript' =>'dc23834dc23ad3da44d0016ea05abccd',
+    'appid'=>'wx77e170740e5fbd7c'
 ]);
