@@ -36,7 +36,7 @@ class WechatController extends ControllerBase
 	    }else{
 	    	
 	       
-	        $wc->call_back_url =  "http://wd.weizhong360.cn/wechat-call_back?id=".$this->id;
+	        $wc->call_back_url =  "http://wd.weizhong360.cn/wechat-call_back?id=".$wc->id;
 	        $res = $wc->save();
 	        if($res){
 	            dd($wc->getMessages());
