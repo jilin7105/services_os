@@ -39,7 +39,7 @@ class WechatController extends ControllerBase
 	        $wc->call_back_url =  "http://wd.weizhong360.cn/wechat-call_back?id=".$this->id;
 	        $res = $wc->save();
 	        if($res){
-	            dd($this->getMessages());
+	            dd($wc->getMessages());
 	        }
 	    }
     	redirect('/wechat');
